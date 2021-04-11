@@ -1,5 +1,10 @@
 #!/bin/bash
 
+# Setup apache's envvars.
+source /etc/apache2/envvars
+
+docker-entrypoint.sh apache2 -D FOREGROUND
+
 # Wait for wordpress-cli to do its job...
 while [ ! -f "/usr/local/bin/wp" -a ! -f "wp" ]; do sleep 1; done; sleep 1;
 
@@ -28,8 +33,5 @@ rm -rf wp-content/plugins/hello.php
 chown -R www-data:www-data /var/www/html/wp-content/uploads
 chown www-data:www-data /var/www/html/wp-content /var/www/html/wp-content/plugins /var/www/html/wp-content/themes /var/www/html/wp-content/upgrade
 
-# Setup apache's envvars.
-source /etc/apache2/envvars
-
 # Start Apache.
-apache2 -D FOREGROUND
+# apache2 -D FOREGROUND

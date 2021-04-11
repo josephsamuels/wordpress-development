@@ -46,10 +46,10 @@ services:
       - 8080:80
     restart: on-failure
     volumes:
-      - www:/var/www/html:rw
-      - "./scripts:/wp-dev/scripts"
-      - "./plugins:/wp-dev/plugins"
-      - "./themes:/wp-dev/themes"
+      - www:/var/www/html
+      - ./scripts:/wp-dev/scripts
+      - ./plugins:/wp-dev/plugins
+      - ./themes:/wp-dev/themes
 
   wordpress-cli:
     image: wordpress:cli
@@ -61,8 +61,8 @@ services:
       - local
     user: xfs
     volumes:
-      - www:/var/www/html:rw
-      - ./scripts:/wp-dev/scripts:rw
+      - www:/var/www/html
+      - ./scripts:/wp-dev/scripts
 
 volumes:
   database: {}
