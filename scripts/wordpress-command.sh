@@ -18,19 +18,8 @@ fi
 rm -rf wp-content/plugins/akismet
 rm -rf wp-content/plugins/hello.php
 
-# Clear existing symlinks.
-find /var/www/html/wp-content/plugins -type l -delete
-find /var/www/html/wp-content/themes -type l -delete
-
-# Symlink plugins.
-for file in /wp-dev/plugins/*; do
-  ln -s "$file" /var/www/html/wp-content/plugins
-done
-
-# Symlink themes.
-for file in /wp-dev/themes/*; do
-  ln -s "$file" /var/www/html/wp-content/themes
-done
+# Symlink plugins and themes.
+/wp-dev/scripts/wordpress-symlink.sh
 
 # Fix permissions for uploading.
 chown -R www-data:www-data /var/www/html/wp-content/uploads
