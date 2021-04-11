@@ -8,7 +8,7 @@ test -f "wp" && mv /var/www/html/wp /usr/local/bin/
 
 # If wordpress is not installed...
 if ! $(wp --allow-root core is-installed); then
-  wp --allow-root core install --path="/var/www/html" --url="http://localhost:8080" --title="wpdev" --admin_user=wordpress --admin_password=wordpress --admin_email=admin@test.com
+  wp --allow-root core install --path="/var/www/html" --url="http://localhost:8080" --title="wp-dev" --admin_user=wordpress --admin_password=wordpress --admin_email=admin@test.com
 
   wp --allow-root config set WP_DEBUG true --raw
   wp --allow-root config set SCRIPT_DEBUG true --raw

@@ -3,7 +3,7 @@
 A simple development environment for Wordpress plugins and themes.
 
 ## Prerequisites
-- Docker
+- [Docker](https://www.docker.com/)
 
 ## Included in the environment
 

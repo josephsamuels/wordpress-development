@@ -1,3 +1,5 @@
+#!/bin/bash
+
 # Clear existing symlinks.
 find /var/www/html/wp-content/plugins -type l -delete
 find /var/www/html/wp-content/themes -type l -delete
