@@ -12,6 +12,9 @@ if ! $(wp --allow-root core is-installed); then
 
   wp --allow-root config set WP_DEBUG true --raw
   wp --allow-root config set SCRIPT_DEBUG true --raw
+  wp --allow-root config set FS_METHOD direct
+
+  wp --allow-root rewrite structure '/%postname%/' --hard
 fi
 
 # Clear out default plugins.
