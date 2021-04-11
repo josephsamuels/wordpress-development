@@ -13,6 +13,8 @@ services:
       MYSQL_PASSWORD: wordpress
     networks:
       - local
+    ports:
+      - 3306:3306
     restart: on-failure
     volumes:
       - database:/var/lib/mysql
@@ -26,7 +28,7 @@ services:
     networks:
       - local
     ports:
-      - "8081:80"
+      - 8081:80
 
   wordpress:
     image: wordpress:latest
@@ -41,7 +43,7 @@ services:
     networks:
       - local
     ports:
-      - "8080:80"
+      - 8080:80
     restart: on-failure
     volumes:
       - www:/var/www/html:rw
