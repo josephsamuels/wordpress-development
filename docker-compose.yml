@@ -24,6 +24,7 @@ services:
       - ./scripts:/wp-dev/scripts
       - ./plugins:/wp-dev/plugins
       - ./themes:/wp-dev/themes
+      - ./config:/wp-dev/config
     ports:
       - 8080:80
     restart: always

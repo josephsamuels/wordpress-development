@@ -38,6 +38,9 @@ rm -rf wp-content/plugins/hello.php
 # Symlink plugins and themes.
 /wp-dev/scripts/wordpress-symlink.sh
 
+# Create error log.
+touch /wp-dev/php_errors.log
+
 # Fix permissions for uploading.
 chown -R www-data:www-data /var/www/html/wp-content/uploads
 chown www-data:www-data /var/www/html/wp-content /var/www/html/wp-content/plugins /var/www/html/wp-content/themes /var/www/html/wp-content/upgrade
