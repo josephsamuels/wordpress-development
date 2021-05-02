@@ -3,7 +3,6 @@
 # Clear existing symlinks.
 find /var/www/html/wp-content/plugins -type l -delete
 find /var/www/html/wp-content/themes -type l -delete
-rm /usr/local/etc/php/php.ini
 
 # Symlink plugins.
 for file in /wp-dev/plugins/*; do
@@ -18,5 +17,3 @@ for file in /wp-dev/themes/*; do
     ln -s "$file" /var/www/html/wp-content/themes
   fi
 done
-
-ln -s /wp-dev/config/php.ini /usr/local/etc/php/php.ini

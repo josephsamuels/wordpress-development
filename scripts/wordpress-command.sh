@@ -2,6 +2,8 @@
 
 sleep 10;
 
+apt-get update && apt-get install -y cron
+
 # Wait for wordpress-cli to do its job...
 while [ ! -f "/usr/local/bin/wp" -a ! -f "wp" ]; do sleep 1; done; sleep 1;
 
@@ -38,12 +40,17 @@ rm -rf wp-content/plugins/hello.php
 # Symlink plugins and themes.
 /wp-dev/scripts/wordpress-symlink.sh
 
-# Create error log.
-touch /wp-dev/php_errors.log
-
 # Fix permissions for uploading.
 chown -R www-data:www-data /var/www/html/wp-content/uploads
 chown www-data:www-data /var/www/html/wp-content /var/www/html/wp-content/plugins /var/www/html/wp-content/themes /var/www/html/wp-content/upgrade
+
+cp -f /wp-dev/config/php.ini /usr/local/etc/php/php.ini
+
+cp -f /wp-dev/config/wp-crontab /etc/cron.d/wp-crontab
+chmod 0644 /etc/cron.d/wp-crontab && crontab /etc/cron.d/wp-crontab
+
+cp -f /wp-dev/config/000-default.conf /etc/apache2/sites-enabled/000-default.conf
+cp -f /wp-dev/config/ports.conf /etc/apache2/ports.conf
 
 # Setup apache's envvars.
 source /etc/apache2/envvars

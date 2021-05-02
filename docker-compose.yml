@@ -26,7 +26,7 @@ services:
       - ./themes:/wp-dev/themes
       - ./config:/wp-dev/config
     ports:
-      - 8080:80
+      - 8080:8080
     restart: always
     environment:
       WORDPRESS_DB_HOST: mysql:3306
