@@ -2,7 +2,7 @@ version: "3.9"
 
 services:
   mysql:
-    image: mysql:8
+    image: mariadb:10.5.8
     volumes:
       - db_data:/var/lib/mysql
     ports:
@@ -44,16 +44,6 @@ services:
     volumes:
       - wp_data:/var/www/html
       - ./scripts:/wp-dev/scripts
-
-  phpmyadmin:
-    depends_on:
-      - mysql
-    image: phpmyadmin
-    restart: always
-    ports:
-      - 8081:80
-    environment:
-      - PMA_HOST=mysql:3306
 
 volumes:
   db_data: {}

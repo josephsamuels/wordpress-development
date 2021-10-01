@@ -1,3 +1,6 @@
 # IDEs
 .idea
 .vscode
+
+# System Files
+.DS_Store
