@@ -11,7 +11,6 @@ The following services will be setup using Docker:
 
 - MySQL (localhost:3306)
 - Wordpress (localhost:8080)
-- PhpMyAdmin (localhost:8081)
 
 You can use the following credentials to log into basically everything:
 

@@ -2,7 +2,9 @@
 
 sleep 10;
 
-apt-get update && apt-get install -y cron
+apt-get update
+apt-get install -y cron
+docker-php-ext-install pdo pdo_mysql
 
 # Wait for wordpress-cli to do its job...
 while [ ! -f "/usr/local/bin/wp" -a ! -f "wp" ]; do sleep 1; done; sleep 1;
